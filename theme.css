@@ -1,0 +1,310 @@
+:root {
+  --theme-color: hsl(215, 80%, 45%);
+  --theme-color-highlight: hsl(215, 80%, 55%);
+  --theme-watching: #00c853;
+  --theme-completed: #2962ff;
+  --theme-hold: #ffd600;
+  --theme-dropped: #d50000;
+  --theme-ptw: #9e9e9e;
+  --theme-background: hsl(215, 80%, 99%);
+}
+
+*, .status-menu-container .status-menu .status-button, .list-unit .list-status-title .text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  background-color: var(--theme-background);
+}
+
+input, #advanced-options input[type=text] {
+  padding: 4px;
+}
+
+input, #advanced-options input[type=text], #advanced-options select {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  color: #222;
+  outline: none;
+}
+
+#advanced-options {
+  background-color: #fff;
+  padding: 8px 0 0;
+}
+
+#advanced-options .advanced-options-header {
+  color: var(--theme-color);
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+#advanced-options .advanced-options-header, #advanced-options .filter-widget, #advanced-options .sort-widget, #advanced-options .advanced-options-button {
+  margin: 0;
+  width: initial;
+  border: none;
+  padding: 8px 40px;
+}
+
+#advanced-options .advanced-options-header .description {
+  display: none;
+}
+
+#advanced-options .advanced-options-button {
+  background-color: #eee;
+  text-align: right;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 135px 135px;
+  grid-gap: 16px;
+}
+
+#advanced-options .advanced-options-button > a {
+  transition: all 0.2s;
+  padding: 10px 0;
+}
+
+#advanced-options .advanced-options-button > a:hover {
+  background-color: var(--theme-color-highlight);
+}
+
+#advanced-options .advanced-options-button .btn-apply {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+#advanced-options .advanced-options-button .btn-clear {
+  grid-row: 1;
+  grid-column: 2;
+  background-color: transparent;
+  color: var(--theme-color);
+}
+
+#advanced-options .advanced-options-button .btn-clear:hover {
+  background-color: #eee;
+}
+
+.header .header-title {
+  left: 8px;
+}
+
+.header .header-menu .btn-menu, .header .header-menu .btn-menu a, .header .header-info, .header .header-info a {
+  color: #222;
+}
+
+#list-container, #status-menu, #advanced-options {
+  border-radius: 4px;
+}
+
+#list-container, #status-menu, .header {
+  min-width: 600px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.status-menu-container {
+  border-width: 0px;
+  transition: box-shadow 0.2s;
+}
+
+#list-container {
+  box-shadow: 0px 8px 16px rgba(32, 32, 32, 0.4);
+}
+
+.status-menu-container.fixed {
+  box-shadow: 0px 4px 8px rgba(32, 32, 32, 0.3);
+}
+
+.status-menu-container .status-menu {
+  margin: 0 auto 0 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.status-menu-container .status-menu > .status-button {
+  display: block;
+  margin-right: 40px;
+  font-size: 14px;
+  padding: 14px 0;
+}
+
+.status-menu-container .status-menu > .status-button:first-child {
+  margin-left: 16px;
+}
+
+.status-menu-container .status-menu > .status-button:last-child {
+  margin-right: 16px;
+}
+
+.status-menu-container .status-menu .status-button, .status-menu-container .search-container #search-button {
+  color: #222;
+  transition: color 0.2s;
+}
+
+.status-menu-container .search-container #search-button:hover, .status-menu-container .status-menu .status-button:hover {
+  color: var(--theme-color);
+}
+
+.status-menu-container .status-menu .status-button.on {
+  color: var(--theme-color);
+}
+
+.status-menu-container .status-menu .status-button:after {
+  background-color: var(--theme-color);
+}
+
+.status-menu-container .search-container #search-button:hover, .status-menu-container .status-menu .status-button:hover > .status-menu-container .status-menu .status-button:after:hover {
+  background-color: var(--theme-color-highlight);
+}
+
+.status-menu-container .search-container #search-box.open {
+  width: 250px;
+  margin-right: 8px;
+}
+
+.list-unit {
+  width: 100%;
+}
+
+.list-unit .list-status-title {
+  width: inherit;
+  background-color: white;
+}
+
+.list-unit .list-status-title .text {
+  text-align: left;
+  color: #222222;
+  padding-left: 16px;
+}
+
+.list-unit .list-status-title .stats a, a {
+  color: #222222;
+  transition: color 0.2s;
+}
+
+.list-table .list-table-data a:not(.edit-disabled):hover {
+  text-decoration: none;
+  color: var(--theme-color);
+}
+
+.list-table .list-table-data .data.status.reading, .list-table .list-table-data .data.status.watching {
+  background-color: var(--theme-watching);
+}
+
+.list-table .list-table-data .data.status.completed {
+  background-color: var(--theme-completed);
+}
+
+.list-table .list-table-data .data.status.onhold {
+  background-color: var(--theme-hold);
+}
+
+.list-table .list-table-data .data.status.dropped {
+  background-color: var(--theme-dropped);
+}
+
+.list-table .list-table-data .data.status.plantoread, .list-table .list-table-data .data.status.plantowatch {
+  background-color: var(--theme-ptw);
+}
+
+.list-table .list-table-data .tags .edit {
+  color: var(--theme-color);
+}
+
+.list-table .list-table-data .data.status {
+  width: 6px;
+  height: 6px;
+  display: flex;
+  border-radius: 50%;
+  flex-direction: column;
+  margin: 32px 4px;
+}
+
+.list-block {
+  margin-top: 0px;
+}
+
+.list-container {
+  border-width: 0px;
+}
+
+.list-unit .list-stats {
+  background-color: white;
+  color: #222;
+  text-align: left;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.list-table .list-table-header .header-title {
+  height: 14px;
+  background: initial;
+  text-align: left;
+}
+
+.list-table .list-table-data .data {
+  border-width: 0px;
+  padding: 0;
+  text-align: left;
+}
+
+.list-table .list-table-header .header-title.score, .list-table .list-table-header .header-title.progress, .list-table .list-table-data .data.score, .list-table .list-table-data .data.progress {
+  text-align: right;
+  padding-right: 16px;
+}
+
+.list-table .list-table-header .header-title.score, .list-table .list-table-header .header-title.progress {
+  width: initial;
+}
+
+#footer-block {
+  background-color: #212121;
+}
+
+#copyright {
+  color: rgba(255,255,255,0.54);
+}
+
+.list-menu-float {
+  border-radius: 4px;
+  left: -52px;
+  border-right: 6px solid #ccc;
+  transition: all 0.2s;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.list-menu-float:hover {
+  left: 0;
+  border-right-color: var(--theme-color-highlight);
+}
+
+.list-menu-float .icon-menu:not(.profile):hover, .list-menu-float .icon-menu.setting:hover .text .link-list-setting, .list-menu-float .icon-menu.setting:hover .text .link-style-setting, #advanced-options .advanced-options-button > a, #advanced-options .sort-widget input[type=radio]:checked + label {
+  background-color: var(--theme-color);
+}
+
+.list-table > tbody:nth-of-type(2n+1) {
+  background-color: initial;  
+}
+
+.list-table > tbody {
+  transition: background-color 0.2s;
+}
+
+tbody:hover, tbody:nth-of-type(2n+1):hover {
+  background-color: #eee;
+}
+
+tbody:first-child:hover {
+  background-color: #fff;
+}
+
+.list-table {
+  border: none;
+}
+
+.list-table .list-table-data .data.title .add-edit-more, .add-edit-more * {
+  color: #bababa;
+  float: initial;
+}
